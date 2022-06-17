@@ -44,7 +44,7 @@ class ControllerMembers {
             name: req.body.username,
             id: result[0].id,
           };
-          const accessToken = jwt.sign(user, process.env.SECRET_KEY , { expiresIn: '15s' });
+          const accessToken = jwt.sign(user, process.env.SECRET_KEY , { expiresIn: '15m' });
           res.status(200).json({ accessToken, result: result[0] });
         } else {
           res.status(401).send('incorrect password');
